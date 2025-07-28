@@ -1,0 +1,20 @@
+{
+	"name": "e1",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.ts",
+	"type": "module",
+	"dependencies": {
+		"isolated-vm": "5.0.4",
+		"ivm-inspect": "file:ivm-inspect/ivm-inspect-3.0.0.tgz",
+		"yargs": "18.0.0"
+	},
+	"devDependencies": {
+		"@trivago/prettier-plugin-sort-imports": "5.2.2",
+		"@types/node": "24.1.0",
+		"@types/yargs": "17.0.33",
+		"ts-node": "10.9.2",
+		"tsx": "4.20.3",
+		"typescript": "5.8.3"
+	}
+}

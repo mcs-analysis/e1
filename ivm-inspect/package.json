@@ -1,0 +1,30 @@
+{
+	"name": "ivm-inspect",
+	"version": "3.0.0",
+	"main": "dist",
+	"scripts": {
+		"install": "node-gyp rebuild",
+		"prepare": "tsc"
+	},
+	"author": "https://github.com/laverdet",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/laverdet/ivm-inspect.git"
+	},
+	"bugs": {
+		"url": "https://github.com/laverdet/ivm-inspect/issues"
+	},
+	"homepage": "https://github.com/laverdet/ivm-inspect#readme",
+	"license": "MIT",
+	"gypfile": true,
+	"devDependencies": {
+		"@types/node": "^14.14.37",
+		"typescript": "^3.8.3"
+	},
+	"peerDependencies": {
+		"isolated-vm": "^5.0.4"
+	},
+	"dependencies": {
+		"nan": "^2.14.2"
+	}
+}
