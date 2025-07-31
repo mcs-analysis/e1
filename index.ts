@@ -9,24 +9,30 @@ const argv = await yargs(hideBin(process.argv))
 		type: "string",
 		description: "URL to fetch embed info from",
 	})
+	.option("debug", {
+		alias: "d",
+		type: "boolean",
+		description: "Enable debug mode",
+		default: false,
+	})
 	.demandOption("url").argv;
 
-async function main() {
-	let start = performance.now();
-	const url = new URL(argv.url);
-	const { script, clientKey, data } = await fetchEmbedInfo(url);
+let start = performance.now();
+const url = new URL(argv.url);
+const { script, clientKey, data } = await fetchEmbedInfo(url);
+
+if (argv.debug) {
 	console.log("Client Key:", clientKey);
 	console.log("Sources:", data.sources);
-
-	if (typeof data.sources === "string") {
-		const decryptedSources = await runSandboxed(script, clientKey, data.sources);
-		if (decryptedSources) {
-			data.sources = decryptedSources;
-			data.encrypted = false;
-		}
-	}
-	data.duration = performance.now() - start;
-	console.log(data);
 }
 
-main();
+if (typeof data.sources === "string") {
+	const decryptedSources = await runSandboxed(script, clientKey, data.sources);
+	if (decryptedSources) {
+		data.sources = decryptedSources;
+		data.encrypted = false;
+	}
+}
+
+data.duration = performance.now() - start;
+console.log(data);
