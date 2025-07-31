@@ -32,7 +32,6 @@ export async function runSandboxed(script: string, clientKey: string, sources: s
 		async (s) =>
 			await s.run(context).catch((error) => {
 				console.error("Error executing spoofing script in isolated-vm:", error);
-				console.error("Stack Trace:", error.stack);
 			})
 	);
 
@@ -48,7 +47,6 @@ export async function runSandboxed(script: string, clientKey: string, sources: s
 		async (s) =>
 			await s.run(context).catch((error) => {
 				console.error("Error executing code script in isolated-vm:", error);
-				console.error("Stack Trace:", error.stack);
 			})
 	);
 
